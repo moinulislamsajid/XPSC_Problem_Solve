@@ -1,57 +1,36 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
+
+const string V = "aeiou";
 
 int main()
 {
-    int t;
-    cin>>t;
 
-    while(t--)
+
+    int t;
+    cin >> t;
+
+    while (t--)
     {
         int n;
-        cin>>n;
+        cin >> n;
 
-        vector<int> v(n);
-
-        for(int i=0; i<n; i++)
+        vector<int> v(5, n / 5);
+        for (int i = 0; i < n % 5; i++)
         {
-            cin>>v[i];
+            v[i]++;
         }
-        vector<int> even;
-        vector<int> odd;
 
-        for(int i=0; i<n; i++)
+        for (int i = 0; i < 5; i++)
         {
-            if(v[i]%2==0)
+            for (int j = 0; j < v[i]; j++)
             {
-                even.push_back(v[i]);
-            }
-            else
-            {
-                odd.push_back(v[i]);
+                cout << V[i];
             }
         }
 
-        int esum=0,osum=0;
-
-        for(int in : even)
-        {
-            esum+=in;
-        }
-        for(int od : odd)
-        {
-            osum+=od;
-        }
-
-        //cout<<esum<<" "<<osum<<endl;
-
-        if((esum%2==0 && osum%2==0)  || (esum%2==1 && osum%2==1))
-        {
-            cout<<"YES"<<endl;
-        }
-        else
-        {
-            cout<<"NO"<<endl;
-        }
+        cout <<endl;
     }
+
+    return 0;
 }
